@@ -1,0 +1,14 @@
+.search-form {
+  background-color: #eee;
+  width: 100%;
+  text-align: center;
+}
+input {
+  width: 80%;
+  margin: 1rem auto;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+  margin-left: 10px;
+}
