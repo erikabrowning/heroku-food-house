@@ -5,9 +5,8 @@ import SearchForm from "./components/SearchForm";
 import DishCard from "./components/DishCard";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import RandomRecipe from "./components/RandomRecipe";
-// import About from "./components/About";
-import DishDetails from "./components/DishDetails";
 import About from "./components/About";
+import DishDetails from "./components/DishDetails";
 
 const FoodHouse = () => {
   const [data, setData] = useState({ hits: [] });
@@ -25,7 +24,7 @@ const FoodHouse = () => {
   }, [search]);
 
   console.log(data);
-
+  //making changes did it work
   return (
     <Router>
       <div>
@@ -47,22 +46,14 @@ const FoodHouse = () => {
           <Route path="/random">
             <RandomRecipe />
           </Route>
-          <Route path="/:id">
-            <DishDetails />
-          </Route>
+          <Route path="/:id" component={DishDetails} />
           <Route exact path="/">
             <SearchForm setSearch={setSearch} initialPlaceholder={search} />
 
             <div className="container">
               {data.hits && data.hits.length
                 ? data.hits.map(meal => (
-                    <Link
-                      to={{
-                        pathname: `${meal.idMeal}`
-                      }}
-                    >
-                      <DishCard key={meal.idMeal} meal={meal}></DishCard>
-                    </Link>
+                    <DishCard key={meal.idMeal} meal={meal}></DishCard>
                   ))
                 : "Nothing found :-/"}
             </div>
